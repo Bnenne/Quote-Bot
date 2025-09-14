@@ -3,6 +3,7 @@ from discord.ext import commands
 import aiohttp
 import os
 
+# getting discord bot token
 BOT_TOKEN = os.environ['BOT_TOKEN']
 
 TOKEN = BOT_TOKEN
