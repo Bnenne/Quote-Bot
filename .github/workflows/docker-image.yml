@@ -3,7 +3,7 @@ name: Build Docker Image
 on:
   push:
     branches:
-      - master
+      - main
 
 env:
   REGISTRY: ghcr.io
@@ -30,15 +30,14 @@ jobs:
 
       # 3. Restore Docker Layer Cache
       - name: Restore Docker cache
-        uses: actions/cache@v4
+        uses: actions/cache@v4.2.2
         with:
           path: /tmp/.buildx-cache
           key: ${{ runner.os }}-docker-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-docker-
-        
 
-        # 4. Log in to the Container registry
+      # 4. Log in to the Container registry
       - name: Log in to the Container registry
         uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
         with:
