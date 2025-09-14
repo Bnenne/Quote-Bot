@@ -5,7 +5,7 @@ import os
 
 # getting discord bot token
 BOT_TOKEN = os.environ['BOT_TOKEN']
-PATH = os.environ['PATH']
+API_PATH = os.environ['API_PATH']
 
 TARGET_CHANNEL_ID = 1391906913142444082  # replace with your channel ID
 
@@ -65,7 +65,7 @@ async def on_message(message):
         # Get prediction from your server
         async with aiohttp.ClientSession() as session:
             async with session.get(
-                PATH,
+                API_PATH,
                 headers={"Message": message.content}
             ) as resp:
                 result = await resp.text()
