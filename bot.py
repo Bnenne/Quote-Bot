@@ -7,13 +7,14 @@ import os
 BOT_TOKEN = os.environ['BOT_TOKEN']
 API_PATH = os.environ['API_PATH']
 
-TARGET_CHANNEL_ID = 1391906913142444082  # replace with your channel ID
+TARGET_CHANNEL_ID = 1391906913142444082
 
 intents = discord.Intents.default()
 intents.message_content = True
 
 bot = commands.Bot(command_prefix="!", intents=intents)
 
+# Buttons for users to answer the bot
 class ChoiceButton(discord.ui.Button):
     def __init__(self, label, message, prediction, view):
         super().__init__(label=label, style=discord.ButtonStyle.primary)
